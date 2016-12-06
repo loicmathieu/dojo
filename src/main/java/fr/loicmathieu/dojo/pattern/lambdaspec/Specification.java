@@ -8,17 +8,17 @@ package fr.loicmathieu.dojo.pattern.lambdaspec;
  * Inspired by http://blog.xebia.fr/2009/12/29/le-pattern-specification-pour-la-gestion-de-vos-regles-metier/
  * and https://github.com/nicolaslecoz/java-sandbox/tree/master/src/main/java/patternSpecification
  *
- * User specifications needs to extends {@link LeafSpecification} or use the {@link LambdaSpecificationFactory}.
+ * User specifications needs to extends {@link LeafSpecification} or use the {@link LeafSpecification.from(Specification)} that allows creating
+ * a specification with a lambda.
  *
  * Here are a code sample from the TU using only lambda specification:
  * <pre>
  *		Obj1 obj1 = new Obj1();
  *		obj1.setText("text");
  *		obj1.setNb(11);
- *		LambdaSpecificationFactory<Obj1> factory = new LambdaSpecificationFactory<>();
- *		LeafSpecification<Obj1> spec1 = factory.from(obj -> obj.getText() != null);
- *		LeafSpecification<Obj1> spec2 = factory.from(obj -> obj.getNb() > 10);
- *		LeafSpecification<Obj1> spec3 = factory.from(obj -> obj.getNb() < 1);
+ *		LeafSpecification<Obj1> spec1 = LeafSpecification.from(obj -> obj.getText() != null);
+ *		LeafSpecification<Obj1> spec2 = LeafSpecification.from(obj -> obj.getNb() > 10);
+ *		LeafSpecification<Obj1> spec3 = LeafSpecification.from(obj -> obj.getNb() < 1);
  *		boolean isSatisfied = spec1.and(spec2.or(spec3)).isSatisfiedBy(obj1);
  * </pre>
  *
@@ -55,12 +55,15 @@ package fr.loicmathieu.dojo.pattern.lambdaspec;
  *
  * @param <T> The objet type of the specification
  */
+@FunctionalInterface
 public interface Specification<T> {
 
 	/**
-	 * evaluation.
-	 * @param t
-	 * @return
+	 * Evaluation of the Specification.
+	 *
+	 * @param t the object to evaluate
+	 *
+	 * @return true if the specification is satisfied by the object
 	 */
 	public boolean isSatisfiedBy(T obj);
 }
