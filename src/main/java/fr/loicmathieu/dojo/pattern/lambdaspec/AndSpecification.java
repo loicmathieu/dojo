@@ -4,7 +4,6 @@ package fr.loicmathieu.dojo.pattern.lambdaspec;
 /**
  * {@link AndSpecification} provide an And composition for {@link Specification}
  *
- * @author 396056
  * @author lmathieu
  *
  * @param <T> The objet type of the specification
@@ -13,6 +12,7 @@ public  class AndSpecification<T> extends AbstractCompositeSpecification<T>{
 
 
 	/**
+	 * Constructor with the specifications to logically AND
 	 *
 	 * @param specifications
 	 */

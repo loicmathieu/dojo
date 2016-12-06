@@ -3,7 +3,6 @@ package fr.loicmathieu.dojo.pattern.lambdaspec;
 /**
  * {@link OrSpecification} provide an Or composition for {@link Specification}.
  *
- * @author 396056
  * @author lmathieu
  *
  * @param <T> The objet type of the specification
@@ -20,7 +19,7 @@ public class OrSpecification<T> extends AbstractCompositeSpecification<T>{
 	}
 
 	/**
-	 * {@inheritDoc}}
+	 * @inheritDoc
 	 */
 	@Override
 	public boolean isSatisfiedBy(T obj) {

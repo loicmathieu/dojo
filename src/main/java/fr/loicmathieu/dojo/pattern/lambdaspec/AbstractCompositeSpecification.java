@@ -8,7 +8,6 @@ import java.util.List;
  * {@link AbstractCompositeSpecification} for {@link Specification} composition.
  * This class is package private, user specification needs to extends LeafSpecification.
  *
- * @author 396056
  * @author lmathieu
  *
  * @param <T> The objet type of the specification
@@ -16,13 +15,18 @@ import java.util.List;
 abstract class AbstractCompositeSpecification<T>  implements CompositeSpecification<T>{
 	protected List<Specification<T>> specifications;
 
+	/**
+	 * Constructor that takes a list of specification for composition
+	 *
+	 * @param specifications
+	 */
 	@SafeVarargs
 	protected AbstractCompositeSpecification(Specification<T>... specifications) {
 		this.specifications = new ArrayList<>(Arrays.asList(specifications));
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	@Override
 	public CompositeSpecification<T> and(Specification<T> other) {
@@ -31,7 +35,7 @@ abstract class AbstractCompositeSpecification<T>  implements CompositeSpecificat
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	@Override
 	public CompositeSpecification<T> or(Specification<T> other) {
@@ -39,7 +43,7 @@ abstract class AbstractCompositeSpecification<T>  implements CompositeSpecificat
 
 	}
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	@Override
 	public CompositeSpecification<T> not() {

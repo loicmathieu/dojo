@@ -61,7 +61,7 @@ public interface Specification<T> {
 	/**
 	 * Evaluation of the Specification.
 	 *
-	 * @param t the object to evaluate
+	 * @param obj the object to evaluate
 	 *
 	 * @return true if the specification is satisfied by the object
 	 */
