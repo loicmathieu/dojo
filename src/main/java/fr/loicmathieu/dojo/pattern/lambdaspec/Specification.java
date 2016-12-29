@@ -22,7 +22,7 @@ package fr.loicmathieu.dojo.pattern.lambdaspec;
  *		boolean isSatisfied = spec1.and(spec2.or(spec3)).isSatisfiedBy(obj1);
  * </pre>
  *
- * Here are a code sample from the TU using only lambda LeafSpecification:
+ * Here are a code sample from the TU using only LeafSpecification standard implementation :
  * <pre>
  * 	public class Obj1HasNotNullText  extends LeafSpecification<Obj1>{
  *		public boolean isSatisfiedBy(Obj1 obj) {
